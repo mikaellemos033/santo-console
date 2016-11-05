@@ -1,0 +1,23 @@
+{
+    "name": "mikaellemos033/santo-console",
+    "description": "Simple console with PHP",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "mikaellemos033",
+            "email": "mikaellemos033@gmail.com"
+        }
+    ],
+    "require": {
+      "php": ">=5.4"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "5.5.*"
+    },
+    "autoload": {
+      "psr-4": {
+          "SantoConsole\\": "src/SantoConsole",
+          "Examples\\": "examples/"
+      }
+    }
+}
