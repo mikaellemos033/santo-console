@@ -2,7 +2,8 @@
     "name": "mikaellemos033/santo-console",
     "description": "Simple console with PHP",
     "license": "MIT",
-    "minimum-stability": "dev",
+    "type": "library",
+    "minimum-stability": "stable",
     "authors": [
         {
             "name": "mikaellemos033",
