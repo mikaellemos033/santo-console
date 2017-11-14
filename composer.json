@@ -1,5 +1,5 @@
 {
-    "name": "mikaellemos033/santo-console",
+    "name": "santo/console",
     "description": "Simple console with PHP",
     "license": "MIT",
     "type": "library",
