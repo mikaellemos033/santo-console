@@ -1,11 +1,11 @@
 <?php
 
-namespace Examples;
+namespace SantoConsole\Examples;
 
 use \SantoConsole\Job\JobConsole;
 
-class TestJob implements JobConsole
-{
+class TestJob extends JobConsole
+{    
     /**
      * @var string
      * comando que será executado no console
@@ -23,6 +23,7 @@ class TestJob implements JobConsole
      * parametros requeridos pelo comando
      */
     public $params = [
+        'name'
     ];
 
     /**
@@ -30,7 +31,7 @@ class TestJob implements JobConsole
      */
     public function run()
     {
-      echo "vai cavalinho";
+      $this->comment->success("vai cavalinho");
       return true;
     }
 

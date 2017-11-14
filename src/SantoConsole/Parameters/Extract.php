@@ -6,31 +6,41 @@ use \Exception;
 
 class Extract
 {
-  public function run($params, $inputs)
-  {
-      if( empty($params) && empty($inputs) ) return [];
+  private $comment;
 
-      $new_params = [];
-      foreach( $params as $param ){
-        foreach( $inputs as $k => $input ){
-          if( !preg_match("/^([--{$param}=])/", $input) ) continue;
-          if( empty($new_params[$param]) ){
-            $new_params[$param] = end(explode('=', $input));
-          }
+  public function run(array $params, array $inputs)
+  {
+    if (empty($params) && empty($inputs)) return [];
+
+    $arguments = [];
+
+    foreach ($params as $param) {
+      
+      foreach ($inputs as $k => $input) {
+        
+        if (!preg_match("/^([--{$param}=])/", $input)) continue;
+    
+        if (empty($arguments[$param])) {
+
+          $arg = explode('=', $input);
+          $arguments[$param] = end($arg);
+
         }
+    
       }
       
-      return $this->validParams($new_params, $params);
+    }
+      
+    return $this->validParams($arguments, $params);
   }
 
-  public function validParams( array $new_params, array $params )
+  private function validParams(array $arguments, array $params)
   {
-    if( count($new_params) != count($params) ){
-      $text = implode(", ", $params);
-      $text = "Está faltando alguns parâmetros ({$text})";
-      throw new Exception($text);
+    if (sizeof($arguments) != sizeof($params)) {    
+      throw new Exception(sprintf('Está faltando alguns parâmetros (%s)', implode(", ", $params)));
     }
-    return $new_params;
+
+    return $arguments;
   }
 
 }

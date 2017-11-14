@@ -9,9 +9,6 @@
 require ('vendor/autoload.php');
 
 $command = new \SantoConsole\Command();
-$command->setCommands([
-    'Examples\MestreJob',
-    'Examples\TestJob'
-]);
-
-$command->run($argv);
+$command->setCommands([    
+    'SantoConsole\Examples\TestJob'
+])->run($argv);

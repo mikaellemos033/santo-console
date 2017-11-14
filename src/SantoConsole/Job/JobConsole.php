@@ -2,7 +2,16 @@
 
 namespace SantoConsole\Job;
 
-interface JobConsole
+use SantoConsole\Write\Comment;
+
+abstract class JobConsole
 {
-   public function run();
+	protected $comment;
+
+	public function __construct()
+	{
+		$this->comment = new Comment();
+	}
+
+    abstract public function run();
 }

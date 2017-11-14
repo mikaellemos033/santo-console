@@ -17,8 +17,7 @@
     },
     "autoload": {
       "psr-4": {
-          "SantoConsole\\": "src/SantoConsole",
-          "Examples\\": "examples/"
+          "SantoConsole\\": "src/SantoConsole"          
       }
     }
 }
